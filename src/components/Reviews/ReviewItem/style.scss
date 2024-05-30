@@ -1,0 +1,17 @@
+.review-item {
+  padding: 1em 1.5em;
+
+  .name-date-row {
+    display: flex;
+    justify-content: space-between;
+
+    .author-name {
+      font-weight: 600;
+    }
+
+    .review-date {
+      font-size: 0.9em;
+      color: darkgray;
+    }
+  }
+}

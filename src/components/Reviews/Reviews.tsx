@@ -1,5 +1,7 @@
 import React from "react";
 import Pagination from "./Pagination";
+import ReviewItem from "./ReviewItem";
+import "./style.scss";
 
 const PageSize = 10;
 
@@ -50,17 +52,19 @@ class Reviews extends React.Component<PropTypes, StateTypes> {
     } = this.props;
 
     return (
-      <div>
+      <div className="reviews-container">
         <div>
           {
             pageData.map((reviewId) => (
-              <p>{reviewId}</p>
+              <ReviewItem
+                key={reviewId}
+                id={reviewId}
+              />
             ))
           }
         </div>
 
         <Pagination
-          className="pagination-bar"
           currentPage={currentPage}
           total={data.length}
           pageSize={PageSize}

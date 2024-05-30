@@ -99,6 +99,7 @@ class Pagination extends React.Component<PropTypes, StateTypes> {
     const {
       onPageChange,
       currentPage,
+      className = '',
     } = this.props;
 
     const {
@@ -113,7 +114,7 @@ class Pagination extends React.Component<PropTypes, StateTypes> {
 
     return (
       <ul
-        className="pagination"
+        className={`pagination ${className}`}
       >
         
         <li
@@ -131,6 +132,7 @@ class Pagination extends React.Component<PropTypes, StateTypes> {
       
           return (
             <li
+              key={pageNumber}
               className={`pagination-item ${pageNumber === currentPage ? 'selected' : ''}`}
               onClick={() => onPageChange(Number(pageNumber))}
             >
@@ -155,7 +157,7 @@ type PropTypes = {
   total: number;
   currentPage: number;
   pageSize: number;
-  className: string;
+  className?: string;
 }
 
 type StateTypes = {
