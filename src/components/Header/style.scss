@@ -1,0 +1,27 @@
+.header {
+  padding: 20px;
+  background-color: #ff7200;
+  height: 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .header-clock {
+    font-weight: 500;
+    color: #fff;
+    margin: 0;
+  }
+}

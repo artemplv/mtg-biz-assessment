@@ -7,11 +7,11 @@ const normalizeDigits = (value: number): string => {
   return String(value);
 }
 
-class Clock extends React.Component<{}, StateTypes> {
+class Clock extends React.Component<PropTypes, StateTypes> {
   interval: NodeJS.Timeout;
 
-  constructor() {
-    super(null);
+  constructor(props: PropTypes) {
+    super(props);
 
     this.state = {
       time: '',
@@ -42,13 +42,21 @@ class Clock extends React.Component<{}, StateTypes> {
     const {
       time,
     } = this.state;
+
+    const {
+      className,
+    } = this.props;
   
     return (
-      <p>
+      <p className={className}>
         {time}
       </p>
     )
   }
+}
+
+type PropTypes = {
+  className?: string;
 }
 
 type StateTypes = {

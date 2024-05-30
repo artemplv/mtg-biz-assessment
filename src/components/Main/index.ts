@@ -1,3 +1,3 @@
-import Reviews from "../Reviews";
+import Main from "./Main";
 
-export default Reviews;
+export default Main;
