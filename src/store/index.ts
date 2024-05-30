@@ -13,8 +13,8 @@ export const rootReducer = combineReducers({
   reviews: reviewsReducer,
 });
 
-const configureStore = (preloadedState = {}) => {
-  return createStore(rootReducer, preloadedState, applyMiddleware(thunk));
-}
+export const store = createStore(rootReducer, {}, applyMiddleware(thunk));
 
-export default configureStore;
+export type AppStore = typeof store;
+export type RootState = ReturnType<AppStore['getState']>;
+export type AppDispatch = AppStore['dispatch'];

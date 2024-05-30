@@ -1,6 +1,8 @@
 import { connect } from "react-redux";
 import ReviewItem from "./ReviewItem";
 
+import { RootState } from "@/store";
+
 type PropTypes = {
   id: string;
 }
@@ -17,7 +19,7 @@ const formatName = (fullName: string): string => {
   return formatted;
 }
 
-const mapStateToProps = (state: any, ownProps: PropTypes) => {
+const mapStateToProps = (state: RootState, ownProps: PropTypes) => {
   const {
     reviews: {
       byId,

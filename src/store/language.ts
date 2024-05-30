@@ -5,6 +5,14 @@ export interface Action {
   language: Language;
 }
 
+type LanguageState = {
+  language: Language
+};
+
+const defaultState: LanguageState = {
+  language: 'ru'
+};
+
 export const CHANGE_LANGUAGE = 'language/CHANGE_LANGUAGE';
 
 export const setLanguage = (language: Language) => ({
@@ -12,7 +20,7 @@ export const setLanguage = (language: Language) => ({
   language,
 });
 
-const languageReducer = (state = {}, action: Action) => {
+const languageReducer = (state = defaultState, action: Action) => {
   switch (action.type) {
     case CHANGE_LANGUAGE:
       return {

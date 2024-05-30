@@ -1,7 +1,9 @@
 import { connect } from "react-redux";
 import Reviews from "./Reviews";
 
-const mapStateToProps = (state: any) => {
+import { RootState } from "@/store";
+
+const mapStateToProps = (state: RootState) => {
   return {
     data: state.reviews.allIds,
     language: state.language.language,

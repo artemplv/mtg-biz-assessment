@@ -5,14 +5,27 @@ import {
 } from "@/store/language";
 import reviewsData from "@/constants/reviewsData.json";
 
-export const getReviewsData = (language: Language) => {
+type ReviewsState = {
+  byId: {
+    [key: string]: {
+      name: string;
+      date: string;
+      review: string;
+    }
+  };
+  allIds: string[];
+};
+
+export const getReviewsData = (language: Language): ReviewsState => {
   return {
     byId: reviewsData[language],
     allIds: Object.keys(reviewsData[language]),
   };
 }
 
-const reviewsReducer = (state = {}, action: LanguageAction) => {
+const defaultState = getReviewsData('ru');
+
+const reviewsReducer = (state = defaultState, action: LanguageAction) => {
   switch (action.type) {
     case CHANGE_LANGUAGE:
       return {
