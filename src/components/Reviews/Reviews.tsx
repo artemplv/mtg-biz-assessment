@@ -3,7 +3,7 @@ import Pagination from "./Pagination";
 import ReviewItem from "./ReviewItem";
 import "./style.scss";
 
-const PageSize = 10;
+const PAGE_SIZE = 10;
 
 class Reviews extends React.Component<PropTypes, StateTypes> {
   constructor(props: PropTypes) {
@@ -35,8 +35,8 @@ class Reviews extends React.Component<PropTypes, StateTypes> {
       data,
     } = this.props;
   
-    const firstPageIndex = (currentPage - 1) * PageSize;
-    const lastPageIndex = firstPageIndex + PageSize;
+    const firstPageIndex = (currentPage - 1) * PAGE_SIZE;
+    const lastPageIndex = firstPageIndex + PAGE_SIZE;
     
     return data.slice(firstPageIndex, lastPageIndex);
   }
@@ -67,7 +67,7 @@ class Reviews extends React.Component<PropTypes, StateTypes> {
         <Pagination
           currentPage={currentPage}
           total={data.length}
-          pageSize={PageSize}
+          pageSize={PAGE_SIZE}
           onPageChange={this.setCurrentPage}
         />
       </div>
