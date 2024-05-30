@@ -3,6 +3,8 @@ import Pagination from "./Pagination";
 import ReviewItem from "./ReviewItem";
 import "./style.scss";
 
+import { Language } from "@/shared/types";
+
 const PAGE_SIZE = 10;
 
 class Reviews extends React.Component<PropTypes, StateTypes> {
@@ -49,10 +51,17 @@ class Reviews extends React.Component<PropTypes, StateTypes> {
 
     const {
       data,
+      language,
     } = this.props;
 
     return (
       <div className="reviews-container">
+        {
+          language === 'ru' && <h1>Отзывы</h1>
+        }
+        {
+          language === 'en' && <h1>Reviews</h1>
+        }
         <div>
           {
             pageData.map((reviewId) => (
@@ -77,6 +86,7 @@ class Reviews extends React.Component<PropTypes, StateTypes> {
 
 type PropTypes = {
   data: string[];
+  language: Language;
 }
 
 type StateTypes = {

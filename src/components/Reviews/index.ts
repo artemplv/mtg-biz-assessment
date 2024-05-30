@@ -4,6 +4,7 @@ import Reviews from "./Reviews";
 const mapStateToProps = (state: any) => {
   return {
     data: state.reviews.allIds,
+    language: state.language.language,
   };
 };
 
